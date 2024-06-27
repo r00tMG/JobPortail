@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CandidatureFormRequest extends FormRequest
+class SearchFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +24,7 @@ class CandidatureFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'candidat' => ['required'],
-            'emploi' => ['required'],
-            'cv' => ['required']
+            'titre' => ['string','nullable']
         ];
     }
 }

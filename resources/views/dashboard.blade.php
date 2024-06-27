@@ -54,9 +54,7 @@
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-
 <body class="g-sidenav-show  bg-gray-100">
-
 
 <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -94,7 +92,6 @@
 
 <!-- Github buttons -->
 <script async defer src="{{url('https://buttons.github.io/buttons.js')}}"></script>
-
 
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{url('./assets/js/material-dashboard.min.js?v=3.1.0')}}"></script>

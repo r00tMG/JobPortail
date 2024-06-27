@@ -12,6 +12,12 @@
             <p class="card-text mb-4">{{ $emploi->description }}<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis.</p>
             <div class="row">
                 @can('postuler-offre')
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}} 
+                        </div>
+                    @else
+                    
                     <div class="col-md-4">
                     <button type="button" class="btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">Postuler</button>
                     <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
@@ -26,8 +32,11 @@
                             <div class="modal-body">
                                 <form action="{{ route('emplois.candidature',$emploi) }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="row">
-                                        @include('shared.input',['label'=>'Candidat','name' => 'candidat','value'=>Auth::user()->email])
+                                    <div class="row" hidden>
+                                        @include('shared.input',['label'=>'Candidat','name' => 'candidat','value'=>Auth::user()->id])
+                                    </div>
+                                    <div class="row" hidden>
+                                        @include('shared.input',['label'=>'Emploi','name' => 'emploi','value'=>$emploi->id])
                                     </div>
                                     <div class="row">
                                         @include('shared.input',['label'=>'CV','name' => 'cv','type'=>'file'])
@@ -42,6 +51,7 @@
                         </div>
                     </div>
                     </div>
+                @endif
                 @endcan
         </div>
     </div>

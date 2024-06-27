@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\employeur;
 
 use App\Models\Emploi;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -12,12 +13,7 @@ use App\Http\Requests\CandidatureFormRequest;
 
 class EmploiController extends Controller
 {
-    public function candidature(CandidatureFormRequest $request, Emploi $emploi)
-    {
-        $data = $request->validated();
-        $data['cv'] = $request->cv->store('uploads');
-        
-    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -29,9 +25,6 @@ class EmploiController extends Controller
 
         return view('employeur.index',[
             'emplois' => $emplois,
-            #'emploiByUser' => $emploiByUser,
-            #'titre' => $titre,
-            #'user' => $user
         ])->with('success','Votre emploi à été bien publié');
     }
 

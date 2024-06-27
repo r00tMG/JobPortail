@@ -2,11 +2,12 @@
 @section('title','Liste des emplois')
 @section('content')
     <div class="container bg-light p-5 me-auto w-75">
-        {{-- <div class="w-25 mt-5 m-auto">
-        <form method="GET">
-            <input name="titre" type="text" class="form-control" value="{{ $input['titre'] ?? '' }}" placeholder="Rechercher">
-        </form>
-        </div> --}}
+        <div class="w-25 card mt-5 m-auto">
+            <form class="input-group input-group-outline" method="GET">
+                <label class="form-label">Rechercher</label>
+                <input name="titre" type="text" class="form-control" value="{{ $input['titre'] ?? '' }}">
+            </form>
+        </div> 
         @if(session('success'))
             <div class="w-25 m-auto alert alert-success">
                 {{session('success')}}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidatureController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -28,7 +29,8 @@ Route::get('/dashboard',[HomeController::class,'index'])->middleware(['auth'])->
 
 Route::get('emploi/{emploi}',[HomeController::class,'show'])->middleware('auth')->name('emplois.show');
 
-Route::post('candidature/{emploi}/emploi',[EmploiController::class,'candidature'])->middleware('auth')->name('emplois.candidature');
+Route::post('candidature/{emploi}/emploi',[CandidatureController::class,'candidature'])->middleware('auth')->name('emplois.candidature');
+Route::get('candidature',[CandidatureController::class,'listCandidat'])->middleware('auth')->name('emplois.listCandidat');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
