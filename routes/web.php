@@ -20,8 +20,8 @@ use App\Http\Controllers\employeur\EmploiController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-});
+    return view('home');
+})->middleware('auth');
 ##['middleware' => ['auth', 'role:employer']
 Route::prefix('employeur')->middleware(['auth','role:employeur'])->group(function(){
     Route::resource('emplois',EmploiController::class)->except('show');
@@ -32,6 +32,7 @@ Route::get('emploi/{emploi}',[HomeController::class,'show'])->middleware(['auth'
 
 Route::post('candidature/{emploi}/emploi',[CandidatureController::class,'candidature'])->middleware('auth')->name('emplois.candidature');
 Route::get('candidature',[CandidatureController::class,'listCandidat'])->middleware(['auth','role:employeur'])->name('emplois.listCandidat');
+Route::post('candidature/{candidature}/contact',[CandidatureController::class,'contact'])->middleware(['auth','role:employeur'])->name('contact.candidature');
 
 Route::group(['middleware' => ['auth','role:Admin']], function() {
     Route::resource('roles', RoleController::class);
