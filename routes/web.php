@@ -22,17 +22,18 @@ use App\Http\Controllers\employeur\EmploiController;
 Route::get('/', function () {
     return view('dashboard');
 });
-Route::prefix('employeur')->middleware('auth')->group(function(){
+##['middleware' => ['auth', 'role:employer']
+Route::prefix('employeur')->middleware(['auth','role:employeur'])->group(function(){
     Route::resource('emplois',EmploiController::class)->except('show');
 });
 Route::get('/dashboard',[HomeController::class,'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('emploi/{emploi}',[HomeController::class,'show'])->middleware('auth')->name('emplois.show');
+Route::get('emploi/{emploi}',[HomeController::class,'show'])->middleware(['auth','role:candidat'])->name('emplois.show');
 
 Route::post('candidature/{emploi}/emploi',[CandidatureController::class,'candidature'])->middleware('auth')->name('emplois.candidature');
-Route::get('candidature',[CandidatureController::class,'listCandidat'])->middleware('auth')->name('emplois.listCandidat');
+Route::get('candidature',[CandidatureController::class,'listCandidat'])->middleware(['auth','role:employeur'])->name('emplois.listCandidat');
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth','role:Admin']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 });

@@ -19,20 +19,19 @@
                 <div class="row mb-2">
                     <div class="card bg-gradient-default">
                         <div class="card-body">
-                          
-                          <h5 class="font-weight-normal text-info text-gradient"><a href="{{ route('emplois.show',['emploi' => $emploi]) }}">{{ $emploi->titre }}</a></h5>
-                          <p class="text-muted">{{$emploi->users->email}}</p>
-                          <p class="text-muted">{{$emploi->lieu}}</p>
-                          <blockquote class="blockquote text-white mb-0">
-                            <p class="text-dark ms-3">{{ $emploi->description }}</p>
-                            <footer class="blockquote-footer text-gradient text-info text-sm ms-3">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                          </blockquote>
+                            <h5 class="font-weight-normal text-info text-gradient"><a href="{{ route('emplois.show',['emploi' => $emploi]) }}">{{ $emploi->titre }}</a></h5>
+                            <p class="text-muted">{{$emploi->users->email}}</p>
+                            <p class="text-muted">{{$emploi->lieu}}</p>
+                            <blockquote class="blockquote text-white mb-0">
+                                <p class="text-dark ms-3">{{ $emploi->description }}</p>
+                                <footer class="blockquote-footer text-gradient text-info text-sm ms-3">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
                         </div>
                     </div>
                 </div>
                 @empty
                     <div class="alert alert-danger">
-                        <p class="text-center">Aucun élément ne corresponde à cette recherche</p>
+                        <p class="text-center text-light">Aucun élément ne corresponde à cette recherche</p>
                     </div>
             @endforelse
         </div>

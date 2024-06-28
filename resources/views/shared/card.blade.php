@@ -1,12 +1,3 @@
-{{-- <div class="card mb-4">
-    <div class="card-title">
-        <a href="{{ route('emplois.show',['emploi' => $emploi]) }}">{{ $emploi->titre }}</a>
-    </div>
-    <div class="card-body">
-
-
-    </div>
-</div> --}}
 
 <div class="card bg-gradient-default">
     <div class="card-body">
