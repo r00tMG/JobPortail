@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-
+    @can('emploi-list')
     <div class="mx-3">
         <li class="navbar-nav">
             <a 
@@ -47,6 +47,7 @@
             </a>
         </li>
     </div>
+    @endcan
 <div class="sidenav-footer position-absolute w-100 bottom-0 ">
     <div class="mx-3">
         @auth

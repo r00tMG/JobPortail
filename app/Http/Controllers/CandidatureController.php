@@ -29,13 +29,15 @@ class CandidatureController extends Controller
     {
         $emplois = Emploi::where('employeur',Auth::id())->get();
         $employeur = $emplois->pluck('employeur');
+        $var = $emplois->pluck('employeur');
         $candidatures = [];
         for($i=0;$i<$employeur->count();$i++)
         {
-            $candidatures[] = Candidature::find($emplois->pluck('employeur')[$i]);
+            $var = $emplois->pluck('employeur');
+            $candidatures[] = Candidature::find($var[$i]);
 
         }
-        
+    #dd($candidatures);
         return view('employeur.listCandidat',[
             'candidatures' => $candidatures
         ]);
@@ -46,6 +48,7 @@ class CandidatureController extends Controller
         #dd($request->validated());
         $data = $request->validated();
         $data['cv'] = $request->cv->store('uploads');
+        
         Candidature::create($data);
         return back()
         ->with('success','Votre candidateur a été bien envoyé')

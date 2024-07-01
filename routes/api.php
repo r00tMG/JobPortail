@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\ApiJobController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CandidatureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +16,21 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('login',[AuthController::class,'login'])->middleware('guest')->name('login');
+Route::delete('logout',[AuthController::class,'logout'])->middleware('auth')->name('logout');
+Route::post('register',[AuthController::class,'register'])->middleware('guest')->name('register');
+
+Route::group(['middleware' => ['auth','role:Admin']],function(){
+    Route::resource('users',AuthController::class);
+});
+
+
+Route::get('candidatures', [CandidatureController::class,'index'])->name('candidatures');
+Route::group(['middleware' => ['auth','role:employeur']],function(){
+    Route::resource('emplois', ApiJobController::class);
+
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

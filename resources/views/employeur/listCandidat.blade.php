@@ -26,8 +26,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if ($candidatures == null)
+                            Aucune candidature n'a été trouvé
+                        @else
                         @forelse($candidatures as $candidature)
-                        {{-- @dump() --}}
                             <tr>
                                 <td class="text-center">{{$candidature->candidats->name}}</td>
                                 <td class="text-center"><a class="text-light" href="{{route('emplois.show',$candidature->emplois)}}">{{$candidature->emplois->users->name}}</a></td>
@@ -45,6 +47,7 @@
                                 <p class="text-center text-light">Aucune candidature n'a été envoyé</p>
                             </div>
                         @endforelse
+                        @endif
                         </tbody>
                     </table>
                 </div>

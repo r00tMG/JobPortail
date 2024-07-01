@@ -2,12 +2,9 @@
 @section('title','Liste des candidatures')
 @section('content')
 <style>
-    #home{
-        height: 500px !important;
-        background-size: cover
-    }
+    
 </style>
-<div class="container " id="home">
+<div class="container" id="">
     <div class="card text-center">
       <div class="overflow-hidden position-relative border-radius-lg bg-cover p-3" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/window-desk.jpg');background-size: cover">
         <span class="mask bg-gradient-dark opacity-6"></span>
