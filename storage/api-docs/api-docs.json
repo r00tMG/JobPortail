@@ -533,6 +533,62 @@
                     }
                 }
             }
+        },
+        "/api/candidatures": {
+            "get": {
+                "tags": [
+                    "Candidature"
+                ],
+                "summary": "Get liste candidatures",
+                "description": "Get liste candidatures",
+                "operationId": "30a9056e08770df884c1bc7e730ba381",
+                "responses": {
+                    "200": {
+                        "description": "Liste des candidatures",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "candidatures": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": "1"
+                                                    },
+                                                    "cv": {
+                                                        "type": "string",
+                                                        "example": "example cv"
+                                                    },
+                                                    "candidat": {
+                                                        "type": "string",
+                                                        "example": "example description"
+                                                    },
+                                                    "emploi": {
+                                                        "type": "string",
+                                                        "example": "example lieu"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "tags": [
@@ -567,6 +623,10 @@
         {
             "name": "Users",
             "description": "Users"
+        },
+        {
+            "name": "Candidature",
+            "description": "Candidature"
         }
     ]
 }
