@@ -15,7 +15,7 @@ class CandidatureController extends Controller
     {
         $emplois = Emploi::where('employeur',Auth::id())->get();
         $employeur = $emplois->pluck('employeur');
-        
+
         $var = $emplois->pluck('employeur');
         $candidatures = [];
         #dd($var);
@@ -24,7 +24,7 @@ class CandidatureController extends Controller
             $var = $emplois->pluck('employeur');
             $candidatures[] = Candidature::find($var[$i]);
         }
-        #dd($candidatures);
+        #dd(Candidature::all());
         return CandidatureResource::collection(
             $candidatures
         );

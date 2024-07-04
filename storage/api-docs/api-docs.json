@@ -1,0 +1,572 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Liste des apis Emplois",
+        "description": "Demo Emplois List Api",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/emplois": {
+            "get": {
+                "tags": [
+                    "Emploi"
+                ],
+                "summary": "Get liste emplois",
+                "description": "Get liste emplois",
+                "operationId": "4954fa6c3f901c9a71bf8e7104fdc40f",
+                "responses": {
+                    "200": {
+                        "description": "Liste des emplois",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "emplois": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": "1"
+                                                    },
+                                                    "titre": {
+                                                        "type": "string",
+                                                        "example": "example titre"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "example description"
+                                                    },
+                                                    "lieu": {
+                                                        "type": "string",
+                                                        "example": "example lieu"
+                                                    },
+                                                    "employeur": {
+                                                        "type": "integer",
+                                                        "example": "1"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Emploi"
+                ],
+                "summary": "Créer un emploi",
+                "operationId": "c601af846f4d51045ab069a691969097",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "titre": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "lieu": {
+                                                "type": "string"
+                                            },
+                                            "employeur": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "titre": "example titre",
+                                    "description": "example description",
+                                    "lieu": "example lieu",
+                                    "employeur": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "titre": {
+                                            "type": "string",
+                                            "example": "titre"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "description"
+                                        },
+                                        "lieu": {
+                                            "type": "string",
+                                            "example": "lieu"
+                                        },
+                                        "employeur": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/emplois/{id}": {
+            "get": {
+                "tags": [
+                    "Emploi"
+                ],
+                "summary": "Get Detail emploi",
+                "operationId": "fafbe4382a9bd7ca666e499d3b909e29",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "titre": {
+                                            "type": "string",
+                                            "example": "titre"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "description"
+                                        },
+                                        "lieu": {
+                                            "type": "string",
+                                            "example": "lieu"
+                                        },
+                                        "employeur": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Emploi"
+                ],
+                "summary": "Modifier un emploi",
+                "operationId": "23fdfa7f70ae0a0e72eace98fe2531af",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "titre": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "lieu": {
+                                                "type": "string"
+                                            },
+                                            "employeur": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "titre": "example titre",
+                                    "description": "example description",
+                                    "lieu": "example lieu",
+                                    "employeur": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "titre": {
+                                            "type": "string",
+                                            "example": "titre"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "description"
+                                        },
+                                        "lieu": {
+                                            "type": "string",
+                                            "example": "lieu"
+                                        },
+                                        "employeur": {
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "fail"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Emploi"
+                ],
+                "summary": "Delete Emploi",
+                "operationId": "6440a673a3c4882f83aa443f752b9f72",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "delete emploi success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get liste users",
+                "description": "Get liste users",
+                "operationId": "6ab80e1d0649fe5786bbd88e91df9b40",
+                "responses": {
+                    "200": {
+                        "description": "Liste des userrs",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": "1"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "example name"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example email"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Se connecter avec un email et un mot de passe",
+                "description": "Permet à un utilisateur de se connecter",
+                "operationId": "222b2625838e3c57e017987f73598fda",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "email": {
+                                                "description": "L'email de l'utilisateur",
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "description": "Le mot de passe de l'utilisateur",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "example@example.com",
+                                    "password": "password"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Logged in successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Données invalides",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The provided credentials are incorrect."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Se déconnecter",
+                "operationId": "1bb8b0af4d41a74019de83db8aa2f86f",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "utilisateur déconnecter avec succés"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Emploi",
+            "description": "Emploi"
+        },
+        {
+            "name": "Emploi",
+            "description": "Emploi"
+        },
+        {
+            "name": "Emploi",
+            "description": "Emploi"
+        },
+        {
+            "name": "Emploi",
+            "description": "Emploi"
+        },
+        {
+            "name": "Emploi",
+            "description": "Emploi"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        }
+    ]
+}

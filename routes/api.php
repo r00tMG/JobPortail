@@ -20,18 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::post('login',[AuthController::class,'login'])->middleware('guest')->name('login');
 Route::delete('logout',[AuthController::class,'logout'])->middleware('auth')->name('logout');
 Route::post('register',[AuthController::class,'register'])->middleware('guest')->name('register');
-
+#
 Route::group(['middleware' => ['auth','role:Admin']],function(){
     Route::resource('users',AuthController::class);
 });
+#
+#
 
-
-Route::get('candidatures', [CandidatureController::class,'index'])->name('candidatures');
 Route::group(['middleware' => ['auth','role:employeur']],function(){
-    Route::resource('emplois', ApiJobController::class);
-
+    Route::resource('emplois', ApiJobController::class)->except('create','edit');
+    Route::get('candidatures', [CandidatureController::class,'index'])->name('candidatures');
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
